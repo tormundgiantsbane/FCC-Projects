@@ -1,6 +1,19 @@
+body{
+	background-image: url("/Random-Quotes/Resources/BG.jpeg");
+	background-size: 100% auto;
+	color: white !important;
+	font-family: 'Roboto Slab' !important, serif;
+}
+
 #quoteMachine{
 	width:800px;
 	margin-left: auto ;
 	margin-right: auto ;
 	text-align: center;
 }
+
+#quote,
+#author{
+	font-size: 200%;
+}
+
