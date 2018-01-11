@@ -1,17 +1,8 @@
 $("#btnForQuote").click(function(e){
-//	$.getJSON('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=', function(result){
-//		 $("#quote").text(result[0].content);
-//		 $("#author").text("- " + result[0].title);
-////		alert(result[0].content);
-//
-//	});
 	$.ajax({
 		url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=',
 		cache: false,
 		success: function(result){
-			
-//		 $("#quote").html(result[0].content);
-//			$("#quote").attr('data-text', result[0].content);
 		 $("#quote").data("text", result[0].content);
 		e.stopPropagation();
   
@@ -21,11 +12,11 @@ $("#btnForQuote").click(function(e){
 		},
 		contentType: "application/x-www-form-urlencoded;charset=utf-8"
 	});
-	
-
-	
 });
 
+$("#tweet").click(function(){
+	window.open("https://twitter.com/intent/tweet?hashtags=quote-machina&text=" + $("#quote").text() + $("#author").text());
+});
 
 function typeWriter(text, n) {
   if (n < (text.length)) {
