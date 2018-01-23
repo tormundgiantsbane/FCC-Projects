@@ -1,5 +1,5 @@
 $("#getLocation").click(function(){
-	
+	navigator.geolocation.getCurrentPosition(success, error, options);
 });
 
 var options = {
@@ -19,7 +19,9 @@ function doSomethingWithCoordinateValues(coords) {
 
 	  $.ajax({url,
 		success: function(val){
-	 console.log(val.main.temp);
+//	 console.log(val.main.temp);
+			$("#weather-data").html(val.main.temp + "&deg;C");
+			console.log(val.weather[0].main);
   }});
 }
 
@@ -27,5 +29,4 @@ function error(err) { // error callback
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
 
-navigator.geolocation.getCurrentPosition(success, error, options);
 
